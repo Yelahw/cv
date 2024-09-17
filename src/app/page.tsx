@@ -189,6 +189,19 @@ export default function Page() {
             })}
           </div>
         </Section>
+
+        <Section>
+          <h2 className="text-xl font-bold">Interests</h2>
+          <div className="flex flex-wrap gap-1">
+            {RESUME_DATA.interests.map((interest) => {
+              return (
+                <Badge className="print:text-[10px]" key={interest} variant="outline">
+                  {interest}
+                </Badge>
+              );
+            })}
+          </div>
+        </Section>
       </section>
 
       <CommandMenu
