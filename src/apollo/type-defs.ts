@@ -43,18 +43,6 @@ export class Mission {
 }
 
 @ObjectType()
-export class Interest {
-  @Field(() => String)
-  title: string;
-
-  @Field(() => String)
-  description: string;
-
-  @Field(() => Link, { nullable: true })
-  link?: Link;
-}
-
-@ObjectType()
 export class Education {
   @Field(() => String)
   school: string;
@@ -112,6 +100,18 @@ export class Project {
 
   @Field(() => [String])
   techStack: string[];
+
+  @Field(() => String)
+  description: string;
+
+  @Field(() => Link, { nullable: true })
+  link?: Link;
+}
+
+@ObjectType()
+export class Interest {
+  @Field(() => String)
+  title: string;
 
   @Field(() => String)
   description: string;
