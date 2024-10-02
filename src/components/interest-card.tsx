@@ -9,19 +9,11 @@ import { Badge } from "./ui/badge";
 
 interface Props {
   title: string;
-  subtitle: string;
   description: string;
-  tags: readonly string[];
   link?: string;
 }
 
-export function ProjectCard({
-  title,
-  subtitle,
-  description,
-  tags,
-  link,
-}: Props) {
+export function InterestCard({ title, description, link }: Props) {
   return (
     <Card className="flex flex-col overflow-hidden border border-muted p-3">
       <CardHeader className="">
@@ -33,8 +25,7 @@ export function ProjectCard({
                 target="_blank"
                 className="inline-flex items-center gap-1 underline print:no-underline"
               >
-                {title}{" "}
-                <span className="size-1 rounded-full bg-green-500"></span>
+                {title}
               </a>
             ) : (
               title
@@ -43,28 +34,13 @@ export function ProjectCard({
           <div className="hidden font-mono text-xs underline print:visible">
             {link?.replace("https://", "").replace("www.", "").replace("/", "")}
           </div>
-          <Badge
-            className="px-1 py-0 text-[10px] print:px-0 print:leading-tight"
-            variant="secondary"
-          >
-            {subtitle}
-          </Badge>
-          <CardDescription className="font-mono text-xs print:text-[10px]">
-            {description}
-          </CardDescription>
         </div>
       </CardHeader>
       <CardContent className="mt-auto flex">
         <div className="mt-2 flex flex-wrap gap-1">
-          {tags.map((tag) => (
-            <Badge
-              className="px-1 py-0 text-[10px] print:px-1 print:py-0.5 print:leading-tight"
-              variant="default"
-              key={tag}
-            >
-              {tag}
-            </Badge>
-          ))}
+          <CardDescription className="mt-2 flex flex-wrap gap-1 font-mono text-xs print:text-[10px]">
+            {description}
+          </CardDescription>
         </div>
       </CardContent>
     </Card>

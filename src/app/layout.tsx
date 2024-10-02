@@ -16,6 +16,8 @@ const inter = Inter({
   display: "swap",
 });
 
+// ADD localStorage HERE FOR DARKMODE + use device settings
+
 export default function RootLayout({
   children,
 }: {
@@ -23,7 +25,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <body>{children}</body>
+      <body className="dark">{children}</body>
       <Analytics />
     </html>
   );

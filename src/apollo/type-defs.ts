@@ -22,6 +22,39 @@ export class Contact {
 }
 
 @ObjectType()
+export class Technology {
+  @Field(() => String)
+  name: string;
+
+  @Field(() => String)
+  img: string;
+}
+
+@ObjectType()
+export class Mission {
+  @Field(() => String)
+  position: string;
+
+  @Field(() => String)
+  description: string;
+
+  @Field(() => [Technology])
+  technologies: Technology[];
+}
+
+@ObjectType()
+export class Interest {
+  @Field(() => String)
+  title: string;
+
+  @Field(() => String)
+  description: string;
+
+  @Field(() => Link, { nullable: true })
+  link?: Link;
+}
+
+@ObjectType()
 export class Education {
   @Field(() => String)
   school: string;
@@ -74,6 +107,9 @@ export class Project {
   @Field(() => String)
   title: string;
 
+  @Field(() => String)
+  subtitle: string;
+
   @Field(() => [String])
   techStack: string[];
 
@@ -124,4 +160,7 @@ export class Me {
 
   @Field(() => [Project])
   projects: Project[];
+
+  @Field(() => [Interest])
+  interests: Interest[];
 }
