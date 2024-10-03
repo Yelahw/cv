@@ -11,7 +11,6 @@ interface Props {
   title: string;
   subtitle: string;
   description: string;
-  tags: readonly string[];
   link?: string;
 }
 
@@ -19,7 +18,6 @@ export function ProjectCard({
   title,
   subtitle,
   description,
-  tags,
   link,
 }: Props) {
   return (
@@ -44,7 +42,7 @@ export function ProjectCard({
             {link?.replace("https://", "").replace("www.", "").replace("/", "")}
           </div>
           <Badge
-            className="px-1 py-0 text-[10px] print:px-0 print:leading-tight"
+            className="px-1 py-0 text-[11px] print:px-0 print:leading-tight"
             variant="secondary"
           >
             {subtitle}
@@ -54,19 +52,6 @@ export function ProjectCard({
           </CardDescription>
         </div>
       </CardHeader>
-      <CardContent className="mt-auto flex">
-        <div className="mt-2 flex flex-wrap gap-1">
-          {tags.map((tag) => (
-            <Badge
-              className="px-1 py-0 text-[10px] print:px-1 print:py-0.5 print:leading-tight"
-              variant="default"
-              key={tag}
-            >
-              {tag}
-            </Badge>
-          ))}
-        </div>
-      </CardContent>
     </Card>
   );
 }

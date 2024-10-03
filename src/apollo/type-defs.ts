@@ -33,7 +33,7 @@ export class Technology {
 @ObjectType()
 export class Mission {
   @Field(() => String)
-  position: string;
+  title: string;
 
   @Field(() => String)
   description: string;
@@ -77,8 +77,8 @@ export class Work {
   @Field(() => String)
   end: string;
 
-  @Field(() => String)
-  description: string;
+  @Field(() => [Mission])
+  missions: Mission;
 }
 
 @ObjectType()
@@ -109,7 +109,7 @@ export class Project {
 }
 
 @ObjectType()
-export class Interest {
+export class Activity {
   @Field(() => String)
   title: string;
 
@@ -155,12 +155,9 @@ export class Me {
   @Field(() => [Work])
   work: Work[];
 
-  @Field(() => [String])
-  skills: string[];
-
   @Field(() => [Project])
   projects: Project[];
 
-  @Field(() => [Interest])
-  interests: Interest[];
+  @Field(() => [Activity])
+  interests: Activity[];
 }

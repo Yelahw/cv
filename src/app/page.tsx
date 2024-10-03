@@ -21,7 +21,7 @@ export default function Page() {
         <div className="flex items-center justify-between">
           <div className="flex-1 space-y-1.5">
             <h1 className="text-2xl font-bold">{RESUME_DATA.name}</h1>
-            <p className="max-w-md text-pretty font-mono text-sm text-muted-foreground print:text-[12px]">
+            <p className="max-w-md text-pretty font-mono text-muted-foreground print:text-[12px]">
               {RESUME_DATA.about}
             </p>
             <p className="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
@@ -76,12 +76,12 @@ export default function Page() {
             <div className="hidden flex-col gap-x-1 font-mono text-sm text-muted-foreground print:flex print:text-[12px]">
               {RESUME_DATA.contact.email ? (
                 <a href={`mailto:${RESUME_DATA.contact.email}`}>
-                  <span className="underline">{RESUME_DATA.contact.email}</span>
+                  <span>{RESUME_DATA.contact.email}</span>
                 </a>
               ) : null}
               {RESUME_DATA.contact.tel ? (
                 <a href={`tel:${RESUME_DATA.contact.tel}`}>
-                  <span className="underline">{RESUME_DATA.contact.tel}</span>
+                  <span>{RESUME_DATA.contact.tel}</span>
                 </a>
               ) : null}
             </div>
@@ -92,7 +92,7 @@ export default function Page() {
             <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback>
           </Avatar> */}
         </div>
-        <Section>
+        <Section className="print:hidden">
           <div className="-mx-3 grid grid-cols-1 gap-3 border-b py-1 pl-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
             <h2 className="text-xl font-bold">About</h2>
           </div>
@@ -113,19 +113,21 @@ export default function Page() {
 
           {RESUME_DATA.work.map((work) => {
             return (
-              <Card key={work.company}>
+              <Card key={work.company} className="mt-2 break-inside-avoid">
                 <CardHeader>
                   <div className="flex items-center justify-between gap-x-2 text-base">
                     <h3 className="inline-flex justify-center gap-x-3 font-semibold leading-none">
                       <span className="h-2 w-2 translate-y-1 rounded-full bg-primary print:hidden"></span>
-                      <a className="underline print:no-underline" href={work.link}>
+                      <a
+                        className="underline"
+                        href={work.link}
+                      >
                         {work.company}
                       </a>
 
                       <span className="inline-flex gap-x-1">
                         {work.badges.map((badge) => (
                           <Badge
-                            variant="secondary"
                             className="align-middle text-xs print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
                             key={badge}
                           >
@@ -138,18 +140,38 @@ export default function Page() {
                       {work.start} - {work.end ?? "Present"}
                     </div>
                   </div>
-
-                  <h4 className="font-mono text-sm leading-none print:text-[12px]">
-                    {work.title}
-                  </h4>
                 </CardHeader>
-                <CardContent className="mt-2 text-xs print:text-[10px]">
-                  {work.description}
-                </CardContent>
+                <h4 className="mt-2 font-mono leading-none print:text-[12px]">
+                  {work.title}
+                </h4>
+
+                {work.missions.map((mission) => (
+                  <CardContent
+                    key={mission.description}
+                    className="mt-4 text-xs print:text-[10px]"
+                  >
+                      {work.missions.length > 1 && <h4 className="font-mono text-sm font-bold leading-none print:text-[12px]">
+                        - {mission.title}
+                      </h4>}
+                      <p className="mt-2">{mission.description}</p>
+                      <div className="mt-2 flex flex-wrap gap-1 print:ml-0">
+                        {mission.technologies.map((tech) => (
+                          <Badge
+                            key={tech}
+                            className="text-xs"
+                            variant="outline"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                  </CardContent>
+                ))}
               </Card>
             );
           })}
         </Section>
+
         <Section>
           <div className="-mx-3 grid grid-cols-1 gap-3 border-b py-1 pl-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
             <h2 className="text-xl font-bold">Education</h2>
@@ -176,23 +198,8 @@ export default function Page() {
             );
           })}
         </Section>
-        <Section>
-          <div className="-mx-3 grid grid-cols-1 gap-3 border-b py-1 pl-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
-            <h2 className="text-xl font-bold">Skills</h2>
-          </div>
 
-          <div className="flex flex-wrap gap-1">
-            {RESUME_DATA.skills.map((skill) => {
-              return (
-                <Badge className="print:text-[10px]" key={skill}>
-                  {skill}
-                </Badge>
-              );
-            })}
-          </div>
-        </Section>
-
-        <Section className="print-force-new-page scroll-mb-16">
+        <Section className="scroll-mb-16 print:hidden">
           <div className="-mx-3 grid grid-cols-1 gap-3 border-b py-1 pl-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
             <h2 className="text-xl font-bold">Projects</h2>
           </div>
@@ -205,7 +212,6 @@ export default function Page() {
                   title={project.title}
                   subtitle={project.subtitle}
                   description={project.description}
-                  tags={project.techStack}
                   link={"link" in project ? project.link.href : undefined}
                 />
               );
@@ -213,18 +219,18 @@ export default function Page() {
           </div>
         </Section>
 
-        <Section>
+        <Section className="print:hidden">
           <div className="-mx-3 grid grid-cols-1 gap-3 border-b py-1 pl-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
-            <h2 className="text-xl font-bold">Interests</h2>
+            <h2 className="text-xl font-bold">Activities</h2>
           </div>
           <div className="-mx-3 grid grid-cols-1 gap-3 print:grid-cols-2 print:gap-2 md:grid-cols-2 lg:grid-cols-2">
-            {RESUME_DATA.interests.map((interest) => {
+            {RESUME_DATA.activities.map((activity) => {
               return (
                 <InterestCard
-                  key={interest.title}
-                  title={interest.title}
-                  description={interest.description}
-                  link={"link" in interest ? interest.link.href : undefined}
+                  key={activity.title}
+                  title={activity.title}
+                  description={activity.description}
+                  link={"link" in activity ? activity.link.href : undefined}
                 />
               );
             })}

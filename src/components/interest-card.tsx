@@ -5,7 +5,6 @@ import {
   CardDescription,
   CardTitle,
 } from "./ui/card";
-import { Badge } from "./ui/badge";
 
 interface Props {
   title: string;

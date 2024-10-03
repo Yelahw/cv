@@ -6,12 +6,11 @@ export const RESUME_DATA = {
   initials: "GG",
   location: "Rouen 76000 FRANCE",
   locationLink: "https://www.google.fr/maps/place/Rouen/",
-  about:
-    "Versatile Full Stack Engineer.",
+  about: "Full Stack Engineer",
   summary: [
     "Before programming, I taught multiple courses to highschool and undergraduate students, I conducted scientific research, I passed an entrance exam in a prestigious jewelry school, I managed a medical office.",
     "These experiences taught me autonomy, organization, efficiency and teamwork. I mastered searching for information, synthesizing it, communicating it.",
-    "As a developper, I'm channeling this knowledge to better myself, to constantly learn and improve."
+    "As a developper, I'm channeling this knowledge to better myself, to constantly learn and improve.",
   ],
   avatarUrl: "",
   personalWebsiteUrl: "https://gabrielle-gratecap.dev/",
@@ -54,102 +53,185 @@ export const RESUME_DATA = {
     {
       company: "Useless Corp",
       link: "https://uselesscorp.com/",
-      badges: ["Remote"],
+      badges: ["Part-time", "Remote"],
       title: "Software Engineer / Co-founder",
-      start: "2024",
+      start: "2022",
       end: null,
       missions: [
         {
-          position: "", 
-          description: "", 
-          technologies: [],
+          title: "Online Resume : gabrielle.gratecap.dev",
+          description:
+            "This web project aimed to improve my online presence and test my React.js skills.",
+          technologies: [
+            "React.js",
+            "Next.js",
+            "GraphQL",
+            "Tailwind CSS",
+            "Netlify",
+          ],
         },
-      ],      
-      description:
-        "Web & mobile developement: uselesscorp.com, HiScore, Pixnails, Matris. Mobile games: Spouetch, Rando'Knights, Normada. Live streaming, CAM & sound-design, traditional & digital art.",
+        {
+          title: "Rando'Knights",
+          description:
+            "Mobile game developed on Godot, it counts 1k+ downloads on Google Play and maintains a small but dedicated Discord community.",
+          technologies: ["Godot", "C#", "Firebase"],
+        },
+        {
+          title: "HiScore",
+          description:
+            "Mobile app that counts 5k+ downloads and a 4.4 rating on Google Play.",
+          technologies: ["TypeScript", "Angular", "Capacitor", "Firebase"],
+        },
+        {
+          title: "Matris",
+          description:
+            "Small mobile game, a combination of Tetris and Number Sums.",
+          technologies: ["TypeScript", "Angular", "Capacitor"],
+        },
+        {
+          title: "Spouetch",
+          description:
+            "Small mobile game developed on Godot, has 50+ downloads and a 5.0 rating on Google Play",
+          technologies: ["Godot", "GDScript"],
+        },
+        {
+          title: "Normada",
+          description:
+            "Mobile management game developed on Godot, it became too big and too complex to our taste and ultimately got discontinued.",
+          technologies: ["Godot", "GDScript"],
+        },
+        {
+          title: "Pixnails",
+          description:
+            "Twitch extension web app, it required continuous design and pixel art work that we ultimately lost motivation for. The servers are currently down.",
+          technologies: [
+            "TypeScript",
+            "Angular",
+            "Node.js",
+            "Nest.js",
+            "Firebase",
+          ],
+        },
+      ],
     },
     {
       company: "Spinergie",
       link: "https://www.spinergie.com/",
-      badges: ["Hybrid"],
-      title: "Software Engineer",
+      badges: ["Full-time", "Hybrid"],
+      title: "Full Stack Engineer",
       start: "2021",
       end: "2022",
       missions: [
         {
-          position: "", 
-          description: "", 
-          technologies: [],
+          title: "Make the Maritime Industry Smarter and Greener",
+          description:
+            "Solutions for a sustainable and efficient maritime industry : transform operational and maritime data into actionable insights to reduce carbon footprint and increase efficiency. Track 14k+ vessels all over the world.",
+          technologies: [
+            "TypeScript",
+            "Angular",
+            "PHP",
+            "Symfony",
+            "Python",
+            "Django",
+            "Google API",
+          ],
         },
-      ],  
-      description:
-        "Web development & big data. Technologies: PHP, Symfony, Python, Django, TypeScript, Angular.",
+      ],
     },
     {
       company: "Sopra Steria",
       link: "https://www.soprasteria.com",
-      badges: ["Hybrid"],
-      title: "Software Engineer",
+      badges: ["Full-time", "Hybrid"],
+      title: "Full Stack Engineer",
       start: "2019",
       end: "2021",
       missions: [
         {
-          position: "", 
-          description: "", 
-          technologies: [],
+          title: "MyWay",
+          description:
+            "In-house employees management application, its developement became crucial during COVID for multiple French angencies.",
+          technologies: [
+            "TypeScript",
+            "Angular",
+            "Java",
+            "Spring",
+            "Hibernate",
+            "Maven",
+            "JUnit",
+            "Karma",
+            "Jasmine",
+            "SQL",
+            "PostgreSQL",
+            "REST",
+            "Material",
+            "Protractor",
+            "Gherkin",
+            "Selenium",
+            "Jenkins",
+            "Sonar",
+            "Checkmarx",
+            "Agile",
+          ],
         },
         {
-          position: "", 
-          description: "", 
-          technologies: [],
+          title: "Public administration",
+          description:
+            "Software developement and integration for document dematerialization. Script automations and on-site system installations.",
+          technologies: [
+            "FreeMind",
+            "Java",
+            "JScript",
+            "PowerShell",
+            "Jenkins",
+            "LaTeX",
+          ],
         },
         {
-          position: "", 
-          description: "", 
-          technologies: [],
+          title: "Public administration",
+          description:
+            "Integration and maintenance of multiple mail generation procedures as a solo-developer.",
+          technologies: ["Java", "XML"],
         },
         {
-          position: "", 
-          description: "", 
-          technologies: [],
+          title: "Public administration",
+          description: "Redesign and upgrade of a city tourism mobile app.",
+          technologies: [
+            "TypeScript",
+            "Angular",
+            "Ionic",
+            "PHP",
+            "Elasticsearch",
+            "Jenkins",
+            "Google API",
+          ],
         },
         {
-          position: "", 
-          description: "", 
-          technologies: [],
+          title: "Public administration",
+          description:
+            "Development from-scratch of a national collection process web app. Product design, product demo, mentoring.",
+          technologies: [
+            "TypeScript",
+            "Angular",
+            "Java",
+            "Spring",
+            "Material",
+            "Bootstrap",
+          ],
         },
         {
-          position: "", 
-          description: "", 
-          technologies: [],
+          title: "Side activities",
+          description:
+            "Self-studies, tech community participation, gaming association volunteering (tournament, event, and production planning), public presentation at the 2019 'Codeurs en Seine' symposium.",
+          technologies: ["WinDev", "PL/SQL", "Oracle Policy Automation"],
         },
-      ],  
-      description:
-        "Web, mobile & software development. Technologies: TypeScript, Angular, Java, Spring, PowerShell, Jenkins, Checkmarx, Sonar.",
+      ],
     },
-  ],
-  skills: [
-    "JavaScript",
-    "TypeScript",
-    "Angular",
-    "Java",
-    "Spring",
-    "REST",
-    "SQL",
-    "Godot"
   ],
   projects: [
     {
       title: "Online resume",
       subtitle: "This very website!",
-      techStack: [
-        "React.js",
-        "Next.js",
-        "GraphQL",
-        "Tailwind CSS",
-      ],
-      description:
-        "Template from BartoszJarocki on GitHub.",
+      description: "Template from BartoszJarocki on GitHub.",
       link: {
         label: "Gabrielle Gratecap - Resume",
         href: "https://gabrielle-gratecap.dev",
@@ -158,11 +240,6 @@ export const RESUME_DATA = {
     {
       title: "Rando'Knights",
       subtitle: "Available on iOS and Android",
-      techStack: [
-        "Godot",
-        "C#",
-        "Firebase"
-      ],
       description:
         "Collect, sell, sacrifice and upgrade your knight figurines to try to reach the ultimate knight grade!",
       link: {
@@ -173,12 +250,6 @@ export const RESUME_DATA = {
     {
       title: "HiScore",
       subtitle: "Available on iOS and Android",
-      techStack: [
-        "TypeScript",
-        "Angular",
-        "Capacitor",
-        "Firebase",
-      ],
       description:
         "HiScore lets you keep all your board games data. Create a game, add players, choose the game and go!",
       link: {
@@ -189,11 +260,6 @@ export const RESUME_DATA = {
     {
       title: "Matris",
       subtitle: "Available on iOS and Android",
-      techStack: [
-        "TypeScript",
-        "Angular",
-        "Capacitor"
-      ],
       description:
         "Tiles are falling down! Move them to form 4-tiles lines and earn points. Share your highest score on our discord!",
       link: {
@@ -204,10 +270,6 @@ export const RESUME_DATA = {
     {
       title: "Spouetch",
       subtitle: "Available on iOS and Android",
-      techStack: [
-        "Godot",
-        "GDScript"
-      ],
       description:
         "An arcade mobile game to finally get rid of those annoying flies! Includes 4 mini-games and an amazing soundtrack.",
       link: {
@@ -218,51 +280,43 @@ export const RESUME_DATA = {
     {
       title: "Normada",
       subtitle: "Discontinued",
-      techStack: [
-        "Godot",
-        "GDScript"
-      ],
       description:
         "You're in charge of the Armada of Rouen. Place food, drink and information stalls, park the tallest ships, and try to satisfy the never-ending stream of visitors!",
     },
     {
       title: "Pixnails",
       subtitle: "Discontinued",
-      techStack: [
-        "TypeScript",
-        "Angular",
-        "Node.js",
-        "Nest.js",
-        "Firebase",
-      ],
       description:
         "You're a twitch streamer and you're afraid your viewers are bored? With the Pixnails Twitch extension, they can collect shells to buy boosters and get a chance to find the rarest snail cards!",
     },
   ],
-  interests: [
+  activities: [
     {
-      title: "Programming", 
-      description: "React Certification on Scrimba, Kata practice on Codewars, CSSBattle with friends, CodinGame.", 
+      title: "Programming",
+      description:
+        "React Certification on Scrimba, Kata practice on Codewars, CSSBattle with friends, CodinGame.",
       link: {
         label: "Codewars profile",
         href: "https://www.codewars.com/users/Yelahw",
       },
     },
     {
-      title: "Video games", 
+      title: "Video games",
       description: "Competitive MOBA, FPS, MMO, strategy and simulation games.",
     },
     {
-      title: "Manual activities", 
-      description: "I followed a drawing night class for 2 years. I still practice both traditional and digital drawing. I enjoy animation, jewelry, embroidery, pottery and building PCs.",
+      title: "Manual activities",
+      description:
+        "I followed a drawing night class for 2 years. I still practice both traditional and digital drawing. I enjoy animation, jewelry, embroidery, pottery and building PCs.",
       link: {
         label: "Instagram",
         href: "https://www.instagram.com/scyelart/",
       },
     },
     {
-      title: "Music", 
-      description: "I played music for 10 years. Sometimes I open Cubase and play around with CAM. I love singing under the shower or any other place where no one can hear me.",
+      title: "Music",
+      description:
+        "I played music for 10 years. Sometimes I open Cubase and play around with CAM. I love singing under the shower or any other place where no one can hear me.",
     },
-  ]
+  ],
 } as const;
