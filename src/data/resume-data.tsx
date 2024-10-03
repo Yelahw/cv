@@ -73,7 +73,7 @@ export const RESUME_DATA = {
         {
           title: "Rando'Knights",
           description:
-            "Mobile game developed on Godot, it counts 1k+ downloads on Google Play and maintains a small but dedicated Discord community.",
+            "Mobile game developed on Godot, it counts 10k+ downloads and maintains a small but dedicated Discord community.",
           technologies: ["Godot", "C#", "Firebase"],
         },
         {
@@ -91,7 +91,7 @@ export const RESUME_DATA = {
         {
           title: "Spouetch",
           description:
-            "Small mobile game developed on Godot, has 50+ downloads and a 5.0 rating on Google Play",
+            "Small mobile game developed on Godot, has a 5.0 rating on Google Play",
           technologies: ["Godot", "GDScript"],
         },
         {
