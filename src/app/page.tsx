@@ -16,24 +16,24 @@ export const metadata: Metadata = {
 
 export default function Page() {
   return (
-    <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-12 md:p-16">
-      <section className="mx-auto w-full max-w-2xl space-y-8 print:space-y-4">
+    <main className="container relative mx-auto scroll-my-12 overflow-auto p-4 print:p-0 md:p-16">
+      <section className="mx-auto w-full max-w-2xl">
         <div className="flex items-center justify-between">
-          <div className="flex-1 space-y-1.5">
+          <div className="flex flex-col">
             <h1 className="text-2xl font-bold">{RESUME_DATA.name}</h1>
-            <p className="max-w-md text-pretty font-mono text-muted-foreground print:text-[12px]">
+            <span className="max-w-md text-pretty pb-2 font-mono text-lg text-muted-foreground">
               {RESUME_DATA.about}
-            </p>
-            <p className="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
+            </span>
+            <span className="max-w-md items-center text-pretty font-mono text-xs text-muted-foreground">
               <a
                 className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
                 href={RESUME_DATA.locationLink}
                 target="_blank"
               >
-                <GlobeIcon className="size-3" />
+                <GlobeIcon className="size-3 print:hidden" />
                 {RESUME_DATA.location}
               </a>
-            </p>
+            </span>
             <div className="flex gap-x-1 pt-1 font-mono text-sm text-muted-foreground print:hidden">
               {RESUME_DATA.contact.email ? (
                 <Button
@@ -92,7 +92,7 @@ export default function Page() {
             <AvatarFallback>{RESUME_DATA.initials}</AvatarFallback>
           </Avatar> */}
         </div>
-        <Section className="print:hidden">
+        <Section className="mt-6 print:hidden">
           <div className="-mx-3 grid grid-cols-1 gap-3 border-b py-1 pl-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
             <h2 className="text-xl font-bold">About</h2>
           </div>
@@ -106,65 +106,82 @@ export default function Page() {
             </p>
           ))}
         </Section>
-        <Section>
+
+        <Section className="mt-4 text-pretty">
+          <div className="inline-flex gap-x-1 px-0">
+            {RESUME_DATA.mainSkills.map((skill) => (
+              <Badge variant="outline" key={skill} className="text-sm">
+                {skill}
+              </Badge>
+            ))}
+          </div>
+        </Section>
+
+        <Section className="mt-6">
           <div className="-mx-3 grid grid-cols-1 gap-3 border-b py-1 pl-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
             <h2 className="text-xl font-bold">Work Experience</h2>
           </div>
 
           {RESUME_DATA.work.map((work) => {
             return (
-              <Card key={work.company} className="mt-2 break-inside-avoid">
+              <Card key={work.company} className="break-inside-avoid">
                 <CardHeader>
                   <div className="flex items-center justify-between gap-x-2 text-base">
-                    <h3 className="inline-flex justify-center gap-x-3 font-semibold leading-none">
-                      <span className="h-2 w-2 translate-y-1 rounded-full bg-primary print:hidden"></span>
-                      <a
-                        className="underline"
-                        href={work.link}
-                      >
-                        {work.company}
-                      </a>
-
-                      <span className="inline-flex gap-x-1">
-                        {work.badges.map((badge) => (
-                          <Badge
-                            className="align-middle text-xs print:px-1 print:py-0.5 print:text-[8px] print:leading-tight"
-                            key={badge}
-                          >
-                            {badge}
-                          </Badge>
-                        ))}
-                      </span>
+                    <h3 className="inline-flex items-center gap-x-3 font-semibold leading-none">
+                      <span className="h-2 w-2 rounded-full bg-primary print:hidden"></span>
+                      <span className="text-lg">{work.title}</span>
                     </h3>
                     <div className="text-sm tabular-nums text-gray-500">
                       {work.start} - {work.end ?? "Present"}
                     </div>
                   </div>
                 </CardHeader>
-                <h4 className="mt-2 font-mono leading-none print:text-[12px]">
-                  {work.title}
-                </h4>
-
+                <a className="mr-2 font-mono underline" href={work.link}>
+                  {work.company}
+                </a>
+                <span className="inline-flex gap-x-1">
+                  {work.badges.map((badge) => (
+                    <Badge
+                      className="align-middle text-[10px] print:px-1 print:py-0.5 print:leading-tight"
+                      key={badge}
+                    >
+                      {badge}
+                    </Badge>
+                  ))}
+                </span>
                 {work.missions.map((mission) => (
                   <CardContent
                     key={mission.description}
-                    className="mt-4 text-xs print:text-[10px]"
+                    className="mb-4 text-xs print:text-[10px]"
                   >
-                      {work.missions.length > 1 && <h4 className="font-mono text-sm font-bold leading-none print:text-[12px]">
+                    {work.missions.length > 1 && (
+                      <h4 className="mt-2 font-mono text-sm font-bold leading-none print:text-[12px]">
                         - {mission.title}
-                      </h4>}
-                      <p className="mt-2">{mission.description}</p>
-                      <div className="mt-2 flex flex-wrap gap-1 print:ml-0">
-                        {mission.technologies.map((tech) => (
-                          <Badge
-                            key={tech}
-                            className="text-xs"
-                            variant="outline"
-                          >
-                            {tech}
-                          </Badge>
-                        ))}
-                      </div>
+                      </h4>
+                    )}
+                    <p className="mt-2 print:text-[12px]">
+                      {mission.description}
+                    </p>
+                    <div className="mt-2 flex flex-wrap gap-1 print:hidden">
+                      {mission.technologies.map((tech) => (
+                        <Badge
+                          key={tech}
+                          className="text-xs print:text-[10px]"
+                          variant="outline"
+                        >
+                          {tech}
+                        </Badge>
+                      ))}
+                    </div>
+                    <div className="hidden print:flex">
+                      <span>
+                        {mission.technologies.map((tech, id) =>
+                          id == mission.technologies.length - 1
+                            ? `${tech}.`
+                            : `${tech}, `,
+                        )}
+                      </span>
+                    </div>
                   </CardContent>
                 ))}
               </Card>
@@ -172,7 +189,7 @@ export default function Page() {
           })}
         </Section>
 
-        <Section>
+        <Section className="mt-6">
           <div className="-mx-3 grid grid-cols-1 gap-3 border-b py-1 pl-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
             <h2 className="text-xl font-bold">Education</h2>
           </div>
@@ -199,7 +216,7 @@ export default function Page() {
           })}
         </Section>
 
-        <Section className="scroll-mb-16 print:hidden">
+        <Section className="mt-6 scroll-mb-16 print:hidden">
           <div className="-mx-3 grid grid-cols-1 gap-3 border-b py-1 pl-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
             <h2 className="text-xl font-bold">Projects</h2>
           </div>
@@ -219,7 +236,7 @@ export default function Page() {
           </div>
         </Section>
 
-        <Section className="print:hidden">
+        <Section className="mt-6 print:hidden">
           <div className="-mx-3 grid grid-cols-1 gap-3 border-b py-1 pl-3 print:grid-cols-3 print:gap-2 md:grid-cols-2 lg:grid-cols-3">
             <h2 className="text-xl font-bold">Activities</h2>
           </div>

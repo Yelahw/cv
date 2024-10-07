@@ -2,7 +2,7 @@ import { GitHubIcon, LinkedInIcon } from "@/components/icons";
 import { InstagramIcon } from "lucide-react";
 
 export const RESUME_DATA = {
-  name: "Gabrielle Gratecap",
+  name: "Gabrielle GRATECAP",
   initials: "GG",
   location: "Rouen 76000 FRANCE",
   locationLink: "https://www.google.fr/maps/place/Rouen/",
@@ -35,6 +35,14 @@ export const RESUME_DATA = {
       },
     ],
   },
+  mainSkills: [
+    "TypeScript",
+    "Angular",
+    "Java",
+    "Spring",
+    "SQL",
+    "REST"
+  ],
   education: [
     {
       school: "GT'M Ingénierie",
@@ -59,7 +67,7 @@ export const RESUME_DATA = {
       end: null,
       missions: [
         {
-          title: "Online Resume : gabrielle.gratecap.dev",
+          title: "Online Resume : gabrielle-gratecap.dev",
           description:
             "This web project aimed to improve my online presence and test my React.js skills.",
           technologies: [
@@ -74,7 +82,7 @@ export const RESUME_DATA = {
           title: "Rando'Knights",
           description:
             "Mobile game developed on Godot, it counts 10k+ downloads and maintains a small but dedicated Discord community.",
-          technologies: ["Godot", "C#", "Firebase"],
+          technologies: ["Godot", "C#"],
         },
         {
           title: "HiScore",
@@ -91,7 +99,7 @@ export const RESUME_DATA = {
         {
           title: "Spouetch",
           description:
-            "Small mobile game developed on Godot, has a 5.0 rating on Google Play",
+            "Small mobile game developed on Godot, has a 5.0 rating on Google Play.",
           technologies: ["Godot", "GDScript"],
         },
         {
