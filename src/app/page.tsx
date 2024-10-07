@@ -107,8 +107,8 @@ export default function Page() {
           ))}
         </Section>
 
-        <Section className="mt-4 text-pretty">
-          <div className="inline-flex gap-x-1 px-0">
+        <Section className="mt-4 grid grid-cols-1 text-pretty">
+          <div className="inline-flex flex-wrap gap-1">
             {RESUME_DATA.mainSkills.map((skill) => (
               <Badge variant="outline" key={skill} className="text-sm">
                 {skill}
